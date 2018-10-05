@@ -17,11 +17,11 @@ class Screen:
     def show(self, text='', tiny=[], duration=None):
         microdotphat.clear()
         microdotphat.write_string(text, kerning=False)
-        microdotphat.show()
-
+        
         if tiny:
             self.__draw_tiny(tiny)
-            
+        
+        microdotphat.show()    
         if duration is not None: 
             time.sleep(duration)
             microdotphat.clear()

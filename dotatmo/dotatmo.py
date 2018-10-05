@@ -14,6 +14,7 @@ from display import Screen
 
 
 CURRENT_SCREEN = 0
+SCREEN_LOCK = False
 dotscreen = Screen()
 
 class Dotatmo: 
@@ -107,7 +108,9 @@ class Dotatmo:
         while self.run:
             schedule.run_pending()
             self.__update_screens()
-            dotscreen.show(str(self.screens[CURRENT_SCREEN]))
+
+            if not SCREEN_LOCK:
+                dotscreen.show(str(self.screens[CURRENT_SCREEN]))
             time.sleep(0.3)
 
     def stop(self):
@@ -129,5 +132,8 @@ class Dotatmo:
 
     @staticmethod
     def system_action(channel):
+        global SCREEN_LOCK
         ip = [None, None] + System.get_ip().split('.')
-        dotscreen.show('IP', ip, duration=6)
+        SCREEN_LOCK = True
+        dotscreen.show('IP', ip, duration=4)
+        SCREEN_LOCK = False
