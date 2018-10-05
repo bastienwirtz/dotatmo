@@ -4,7 +4,6 @@ TEMP_OFFSET = -3
 
 # Hardware settings
 BUTTONS = {'DISPLAY': 5, 'SYSTEM': 16}
-CURRENT_SCREEN = 0
 
 # Misc
 DEBUG = True

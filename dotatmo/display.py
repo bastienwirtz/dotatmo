@@ -25,12 +25,3 @@ class Screen:
         if duration is not None: 
             time.sleep(duration)
             microdotphat.clear()
-
-    def animate(self, duration, mode='scroll'):
-        start = time.time()
-
-        while time.time()-start < duration: 
-            microdotphat.scroll()
-            time.sleep(0.2)
-
-
