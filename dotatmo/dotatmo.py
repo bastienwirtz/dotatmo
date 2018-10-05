@@ -123,6 +123,10 @@ class Dotatmo:
     @staticmethod
     def display_action(channel):
         global CURRENT_SCREEN
+
+        if SCREEN_LOCK:
+            return
+
         next_screen = CURRENT_SCREEN+1
         if next_screen > 4:
             next_screen = 0
